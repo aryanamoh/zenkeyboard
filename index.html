@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>zen keyboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <link id="favicon" rel="icon" href="https://cdn.glitch.global/5aa0bcb8-b091-4999-b965-ed48a4f5c197/zenrocks.png?v=1695000613601" type="image/x-icon">
+  </head>
+
+  <body>
+    <h1>zen keyboard</h1>
+
+    <!-- user select waveform -->
+    <span>waveform: &nbsp;</span>
+    <select id="waveform">
+      <option value="sine" selected>sine</option>
+      <option value="square">square</option>
+      <option value="triangle">triangle</option>
+      <option value="sawtooth">sawtooth</option>
+    </select>
+
+    <p></p>
+    
+    <div class="row">
+      
+<!--       SYNTH TYPE -->
+      
+      <div class="column" style="background-color:rgba(245, 245, 220, 0.5); border-radius: 25px;">
+        
+          
+        <div class="radio_buttons">
+        <form id="select_synth">
+          
+          <input type="radio" id="add" name="synth" value="add" checked="checked" onclick="updateSynth();" />
+          <label for="add"> Additive Synthesis </label> <br>  <br>
+            
+          <input type="radio" id="am" name="synth" value="am" onclick="updateSynth();" />
+          <label for="am">AM Synthesis</label> <br>  <br>
+
+          <input type="radio" id="fm" name="synth" value="fm" onclick="updateSynth();" />
+          <label for="fm">FM Synthesis</label>
+          
+        </form>
+        </div>
+ 
+        
+      </div>
+      
+<!--       IMAGE -->
+      <div class="column" >
+        <img src="https://cdn.glitch.global/842ee0a3-5875-401b-a87c-a36b489fe11c/zenrocks.png?v=1696016714939" alt="Zen Rocks" />
+      </div>
+      
+<!--       CONTROLS -->
+      <div class="column" style="background-color:rgba(245, 245, 220, 0.5); border-radius: 25px;">
+      
+        <h2> Modulation Controls  </h2>
+      
+        Number of Partials:
+          <input type="number"
+           min="1"
+           max="10"
+           step="1"
+           value="5"
+           id = "partials">
+        <br> <br>
+        
+        Modulation Frequency
+        <input id="modfreqSlider" type="range" min="1" max="1000" oninput="updateModFreq(this.value)" onchange="updateModFreq(this.value)" >
+        <br> <br>
+      
+      
+        Modulation Index
+        <input id="indexSlider" type="range" min="1" max="1000" oninput="updateIndex(this.value)" onchange="updateIndex(this.value)"> 
+        <br> <br>
+      
+
+        <button id ="lfo" onclick="lfoToggle()"> LFO </button>
+        <br><br>
+
+
+  
+        LFO Frequency
+        <input id="lfoSlider" type="range" min="1" max="12" oninput="updateLFO(this.value)" onchange="updateLFO(this.value)"> 
+        <br> <br>
+
+  
+      </div>
+    </div>
+
+
+    <p></p>
+
+    <!-- embedded audio -->
+    <audio loop id="rainsounds">
+      <source src="https://cdn.glitch.global/842ee0a3-5875-401b-a87c-a36b489fe11c/rainsounds.wav?v=1696016709314" type="audio/wav" />
+      your browser does not support the zen rain sounds element.
+    </audio>
+  </body>
+  <script src="main.js"></script>
+</html>
+
